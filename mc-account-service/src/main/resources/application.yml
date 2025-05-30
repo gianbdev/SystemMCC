@@ -1,6 +1,6 @@
 spring:
   application:
-    name: mc-customer-service
+    name: mc-account-service
 
   datasource:
     driver-class-name: org.postgresql.Driver
@@ -20,4 +20,10 @@ spring:
     open-in-view: false
 
 server:
-  port: ${SERVER_PORT:8083}
+  port: ${SERVER_PORT:8081}
+
+feign:
+  clients:
+    customer:
+      name: customer-service
+      url: http://localhost:8083/customers

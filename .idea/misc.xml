@@ -5,6 +5,8 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/mc-customer-service/pom.xml" />
+        <option value="$PROJECT_DIR$/mc-account-service/pom.xml" />
+        <option value="$PROJECT_DIR$/mc-credit-disbursement-service/pom.xml" />
       </list>
     </option>
   </component>
