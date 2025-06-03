@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: mc-gateway-service
+
+  main:
+    web-application-type: reactive
+
+  server:
+    port: ${SERVER_PORT:8080}
+
+microservices:
+  customer-service-url: ${CUSTOMER_SERVICE_URL:http://localhost:8083}
+  account-service-url: ${ACCOUNT_SERVICE_URL:http://localhost:8081}
+  credit-disbursement-service-url: ${CREDIT_DISBURSEMENT_URL:http://localhost:8082}

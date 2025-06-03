@@ -13,6 +13,15 @@
         <module name="mc-customer-service" />
         <module name="mc-account-service" />
       </profile>
+      <profile name="Annotation profile for mc-gateway-service" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath>
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
+        </processorPath>
+        <module name="mc-gateway-service" />
+      </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
@@ -20,6 +29,7 @@
       <module name="mc-account-service" options="-parameters" />
       <module name="mc-credit-disbursement-service" options="-parameters" />
       <module name="mc-customer-service" options="-parameters" />
+      <module name="mc-gateway-service" options="-parameters" />
     </option>
   </component>
 </project>
