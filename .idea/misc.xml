@@ -8,6 +8,7 @@
         <option value="$PROJECT_DIR$/mc-account-service/pom.xml" />
         <option value="$PROJECT_DIR$/mc-credit-disbursement-service/pom.xml" />
         <option value="$PROJECT_DIR$/mc-gateway-service/pom.xml" />
+        <option value="$PROJECT_DIR$/mc-security-service/pom.xml" />
       </list>
     </option>
   </component>

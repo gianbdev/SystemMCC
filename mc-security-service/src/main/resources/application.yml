@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: mc-security-service
+
+settings:
+  issuer-uri: ${URL_SECURITY_SERVICE:http://localhost:9000}
+
+server:
+  port: ${SERVER_PORT:9000}
+
+mc-security:
+  applications:
+    - clientId: app01
+      clientSecret: "{noop}secretapp"
+    - clientId: web01
+      clientSecret: "{noop}secretweb"
