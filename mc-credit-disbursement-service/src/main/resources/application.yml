@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: mc-account-service
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${DB_HOST:localhost:5433}/${DB_NAME:customer_db}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:adminpostgres1%}
+
+  jpa:
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true;
+
+    hibernate:
+      ddl-auto: update
+
+    open-in-view: false
+
+server:
+  port: ${SERVER_PORT:8082}
+
+feign:
+  clients:
+    account:
+      name: account-service
+      url: http://localhost:8081/accounts

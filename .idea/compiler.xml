@@ -2,13 +2,14 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
-      <profile name="Annotation profile for mc-customer-service" enabled="true">
+      <profile name="Annotation profile for mc-credit-disbursement-service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
+        <processorPath>
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
         </processorPath>
+        <module name="mc-credit-disbursement-service" />
         <module name="mc-customer-service" />
         <module name="mc-account-service" />
       </profile>
@@ -17,6 +18,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="mc-account-service" options="-parameters" />
+      <module name="mc-credit-disbursement-service" options="-parameters" />
       <module name="mc-customer-service" options="-parameters" />
     </option>
   </component>
