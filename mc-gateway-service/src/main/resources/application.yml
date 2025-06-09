@@ -2,6 +2,12 @@ spring:
   application:
     name: mc-gateway-service
 
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${URL_SECRET_SERVICE_OAUTH:http://localhost:9000/oauth2/jwks}
+
   main:
     web-application-type: reactive
 
