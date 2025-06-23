@@ -18,3 +18,31 @@ microservices:
   customer-service-url: ${CUSTOMER_SERVICE_URL:http://localhost:8083}
   account-service-url: ${ACCOUNT_SERVICE_URL:http://localhost:8081}
   credit-disbursement-service-url: ${CREDIT_DISBURSEMENT_URL:http://localhost:8082}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,metrics,circuitbreakers"
+  endpoint:
+    health:
+      show-details: always
+
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        sliding-window-size: 5
+        minimum-number-of-calls: 3
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 10s
+        permitted-number-of-calls-in-half-open-state: 2
+
+  timelimiter:
+    instances:
+      customerCircuitBreaker:
+        timeout-duration: 5s
+
+gateway:
+  retry:
+    attempts: 3

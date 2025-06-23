@@ -9,7 +9,6 @@
         <processorPath>
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
         </processorPath>
-        <module name="mc-customer-service" />
         <module name="mc-credit-disbursement-service" />
         <module name="mc-account-service" />
         <module name="mc-security-service" />
@@ -22,6 +21,15 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
         </processorPath>
         <module name="mc-gateway-service" />
+      </profile>
+      <profile name="Annotation profile for mc-customer-service" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
+        </processorPath>
+        <module name="mc-customer-service" />
       </profile>
     </annotationProcessing>
   </component>

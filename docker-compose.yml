@@ -1,0 +1,80 @@
+services:
+
+  security-service:
+    build: ./mc-security-service
+    container_name: mc-security-service
+    environment:
+      - SERVER_PORT=9000
+      - URL_SECURITY_SERVICE=http://mc-security-service:9000
+    ports:
+      - "9000:9000"
+    networks:
+      - microservices-net
+
+  account-service:
+    build: ./mc-account-service
+    container_name: mc-account-service
+    environment:
+      - SERVER_PORT=8081
+      - DB_HOST=192.168.1.9
+      - DB_PORT=5433
+      - DB_NAME=customer_db
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=adminpostgres1%
+    ports:
+      - "8081:8081"
+    networks:
+      - microservices-net
+
+  credit-disbursement-service:
+    build: ./mc-credit-disbursement-service
+    container_name: mc-credit-disbursement-service
+    environment:
+      - SERVER_PORT=8082
+      - DB_HOST=192.168.1.9
+      - DB_PORT=5433
+      - DB_NAME=customer_db
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=adminpostgres1%
+    ports:
+      - "8082:8082"
+    networks:
+      - microservices-net
+
+  customer-service:
+    build: ./mc-customer-service
+    container_name: mc-customer-service
+    environment:
+      - SERVER_PORT=8083
+      - DB_HOST=192.168.1.9
+      - DB_PORT=5433
+      - DB_NAME=customer_db
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=adminpostgres1%
+    ports:
+      - "8083:8083"
+    networks:
+      - microservices-net
+
+  gateway-service:
+    build: ./mc-gateway-service
+    container_name: mc-gateway-service
+    environment:
+      - SERVER_PORT=8080
+      - URL_SECRET_SERVICE_OAUTH=http://mc-security-service:9000/oauth2/jwks
+      - CUSTOMER_SERVICE_URL=http://customer-service:8083
+      - ACCOUNT_SERVICE_URL=http://account-service:8081
+      - CREDIT_DISBURSEMENT_URL=http://credit-disbursement-service:8082
+    ports:
+      - "8080:8080"
+    networks:
+      - microservices-net
+    depends_on:
+      - customer-service
+      - account-service
+      - credit-disbursement-service
+      - security-service
+
+networks:
+  microservices-net:
+    driver: bridge
